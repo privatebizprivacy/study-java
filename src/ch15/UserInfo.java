@@ -3,6 +3,7 @@ package ch15;
 import java.io.Serializable;
 
 public class UserInfo implements Serializable {
+
     String name;
     String password;
     int age;

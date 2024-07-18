@@ -1,5 +1,8 @@
 package ch15;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.util.Arrays;
 
 public class IOEx3 {
@@ -11,16 +14,33 @@ public class IOEx3 {
         byte[] temp = new byte[4];
 
         //  ByteArray 입출력 스트림을 선언하고 null로 초기화합니다.
-        
+        ByteArrayInputStream input = null;
+        ByteArrayOutputStream output = null;
 
         //  앞서 선언한 스트림객체들에 각 각의 인스턴스를 할당합니다.
+        input = new ByteArrayInputStream(inSrc);
+        output = new ByteArrayOutputStream();
 
         //  입력 바이트배열을 출력합니다.
+        System.out.println("inSrc       :" + Arrays.toString(inSrc));
 
         //  try IOException
+        try {
 
-        //  입력스트림으로부터 블락킹없이 데이터를 temp에 읽고, 읽은데이터를 출력스트림에 씁니다.
-        //  출력스트림으로부터 바이트배열을 추출하고 temp와 바이트배열을 출력합니다.
+            //  입력스트림으로부터 블락킹없이 데이터를 temp에 읽고, 읽은데이터를 출력스트림에 씁니다.
+            while (input.available() > 0) {
+                input.read(temp);
+                output.write(temp);
+
+                //  출력스트림으로부터 바이트배열을 추출하고 temp와 바이트배열을 출력합니다.
+                outSrc = output.toByteArray();
+                printArrays(temp, outSrc);
+            }
+            
+        } catch (IOException e) {
+            // TODO: handle exception
+            e.printStackTrace();
+        }
 
     }
 

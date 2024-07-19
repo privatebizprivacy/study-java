@@ -40,6 +40,12 @@
 
 - 스트림을 사용하고난후 close()로 반드시 닫아주어야하는데, ByteArrayInputStream같은 메모리를 대상으로 하는 스트림이나 System.in, System.out같은 표준입출력스트림은 닫아주지 않아도 된다.
 
+### 15.2.2 ByteArrayInputStream과 ByteArrayOutputStream
+
+- int read(byte[] b, int off, int len)은 입력소스로부터 최대 len만큼의 데이터를 읽어서 b의 off위치부터 값을 저장한다.
+
+- int write(byte[] b, int off, int len)은 b의 off위치부터 len만큼의 데이터를 읽어서 값을 출력소스에 저장한다.
+
 ### 15.6.3 RandomAccessFile 클래스
 
 - 파일의 임의의 위치에 입출력이 가능한 스트림 클래스. InputData인터페이스와 OutputData인터페이스를 상속받아서 기본 자료형 입출력이 가능하다. 또한, 파일포인터를 임의적으로 설정할 수 있어서 순차적이 아닌 임의적인 위치에서 파일을 읽고 쓸 수 있다. 파일을 쓰고난 후 읽을 때 파일포인터의 위치에 주의하여야 한다.

@@ -1,0 +1,1 @@
+publicclassApp{publicstaticvoidmain(String[]args)throwsException{System.out.println("Hello,World!");}}

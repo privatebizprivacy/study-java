@@ -42,9 +42,67 @@
 
 ### 15.2.2 ByteArrayInputStream과 ByteArrayOutputStream
 
+- 바이트배열을 대상으로 입출력할 때 쓰는 스트림이다.
+
 - int read(byte[] b, int off, int len)은 입력소스로부터 최대 len만큼의 데이터를 읽어서 b의 off위치부터 값을 저장한다.
 
 - int write(byte[] b, int off, int len)은 b의 off위치부터 len만큼의 데이터를 읽어서 값을 출력소스에 저장한다.
+
+### 15.2.3 FileInputStream과 FileOutputStream
+
+- 파일을 대상으로 입출력할 때 쓰는 스트림이다.
+
+- 데이터의 범위가 0~255이고, 읽을 데이터가 없음을 알리는 -1이 필요하기때문에 읽고 쓰는 단위를 int를 사용한다.
+
+### 15.3 바이트기반 보조 스트림
+
+### 15.3.1 FilterInputStream과 FilterOutputStream
+
+- 모든 바이트기반 보조스트림의 조상이며, InputStream과 OutputStream의 자손이기도 하다.
+
+- 기반스트림을 필요로하며, FilterInputStream/FilterOutputStream자체로는 아무런 의미가 없다.
+
+- 기반스트림의 기능을 실행하는 역할을 하며, 이 스트림을 사용하려면 상속을 하여 구현하여야한다.
+
+### 15.3.2 BufferedInputStream과 BufferedOutputStream
+
+- 내부의 버퍼(바이트배열)을 이용하여 효율적으로 입출력하게 해주는 보조스트림이다.
+
+- 버퍼가 가득차면 읽고 쓰는 방식이기때문에 버퍼가 가득차지 않는다면, 데이터를 읽거나 쓰지 못한다. 이때는 flush()를 통해서 버퍼의 데이터를 가져와야한다.
+
+- close()를 호출하면 flush()를 먼저 실행하고 기반스트림의 close()를 실행한다.
+
+### 15.3.3 DataInputStream과 DataOutputStream
+
+- DataInput 인터페이스와 DataOutput 인터페이스를 구현하여, 기본자료형을 입출력할 수 있는 보조스트림이다.
+
+### 15.3.4 SequenceInputStream
+
+- 여러개의 InputStream을 하나의 InputStream처럼 사용할 수 있도록, InputStream들을 연결시켜주는 보조스트림이다.
+
+### 15.3.5 PrintStream
+
+- 기반 스트림에 문자 데이터를 다양한 형태로 출력할 수 있도록해주는 역할을 하는 보조스트림이다. print, printf, println을 제공하며, 우리가 흔히 쓰는 System.out객체가 PrintStream이다.
+
+### 15.4. 문자기반 스트림
+
+### 15.4.1 Reader와 Writer
+
+- 모든 문자기반스트림의 조상이다. byte대신 char을 쓴다는게 특징이다. 참고로 ByteArrayInputStream/ByteArrayOutputStream은 CharArrayReader/CharArrayWriter로 대응된다.
+
+### 15.4.2 FileReader와 FileWriter
+
+- 파일로부터 문자데이터를 읽고 쓰는데 사용되는 문자기반스트림이다.
+
+### 15.4.3 PipedReader와 PipedWriter
+
+- 입출력 스트림을 연결해서 데이터를 주고 받는 문자기반스트림이다. 입출력중 하나만 닫으면 모두 닫아지는 특징이 있다.
+
+### 15.4.4 StringReader와 StringWriter
+
+- String을 대상으로하는 문자기반스트림이다.
+
+### 
 
 ### 15.6.3 RandomAccessFile 클래스
 

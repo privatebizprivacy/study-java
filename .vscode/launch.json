@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "BufferedOutputStreamEx1",
+            "request": "launch",
+            "mainClass": "ch15.BufferedOutputStreamEx1",
+            "projectName": "study-java_5ee58da8"
+        },
+        {
+            "type": "java",
             "name": "FileEx7",
             "request": "launch",
             "mainClass": "ch15.FileEx7",

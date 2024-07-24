@@ -9,11 +9,16 @@ public class PrintStreamEx1 {
 
         Date d = new Date();
 
-        System.out.printf("%1$d%1$3d%1$-3d %n", i);
-        System.out.printf("%f%1$8.2f%1$-8.2f %n",f);
-        System.out.printf("%1$5s %1$5s %n",i);
-        System.out.printf("%2$e %1$o %1$x %n",i,f);
-        System.out.printf("%1$tH %1$tM %1$S",d);
-
-        }
+        System.out.printf("문자 %c의 코드는 %d%n",  i,  i);
+        System.out.printf("%d는 8진수로 %o, 16진수로 %x%n", i, i, i);
+        System.out.println();
+        System.out.printf("123456789012345678901234567890%n");
+        System.out.printf("%s%-5s%5s%n", "123", "123", "123");
+        System.out.println();
+        System.out.printf("%-8.1f%8.1f  %e%n", f, f, f);
+        System.out.println();
+        System.out.printf("오늘은 %tY년 %tm월 %td일 입니다.", d,d,d);
+        System.out.printf("지금은 %tH시 %tM분 %tS초입니다.%n", d,d,d);
+        System.out.printf("지금은 %1$tH시 %1$1tM분 %1$tS초입니다.%n", d);
+    }
 }

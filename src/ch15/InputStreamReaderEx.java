@@ -8,24 +8,12 @@ public class InputStreamReaderEx {
     public static void main(String[] args) {
         String line = "";
 
-        try {
-            InputStreamReader isr = new InputStreamReader(System.in);
-            BufferedReader br = new BufferedReader(isr);
+        //try
+        //System.in을 기반으로하는 InputStreamReader와 BufferedReader를 생성합니다.
 
-            System.out.println("사용중인 인코딩:" + isr.getEncoding());
+        //BufferedReader의 인코딩을 추출하여 출력합니다.
 
-            do {
-                System.out.println("문장을 입력하세요. 마치시려면 q를 입력하세요.>");
-                line = br.readLine();
-                System.out.println("입력하신 문장 : " + line);
-            } while (!line.equalsIgnoreCase("q"));
-
-            br.close();
-            System.out.println("프로그램을 종료합니다.");
-        } catch (IOException e) {
-            // TODO: handle exception
-            e.printStackTrace();
-        }
+        // do while을 이용하여
 
     }
 }
